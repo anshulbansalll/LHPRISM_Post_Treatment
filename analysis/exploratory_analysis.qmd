@@ -40,13 +40,17 @@ In this code chunk, we will read in the data file. You may have to edit this cal
 ```{r}
 ## Read in the data file
 lhprism_data <- read_csv(paste0(proj_path, "/data/LHPRISM-Data.csv"), 
-    col_types = cols(`iMap Treat` = col_number())) %>%
+    col_types = cols(`iMap Treat` = col_number(), 
+        GROSS_TREAT_SQFT = col_number())) %>%
   clean_names()
 
 ## Edit the order of levels for some of the variables
 lhprism_data <- lhprism_data %>%
   mutate(native = factor(native, levels = c("low", "medium", "high")),
          non_nat = factor(non_nat, levels = c("low", "medium", "high")))
+
+# Create a species code column
+lhprism_data$species_code <- str_extract(lhprism_data$site_code, "(?<=_)[^_]+(?=_)") 
 
 ```
 
@@ -105,17 +109,32 @@ native_vs_nonnative_cover_chisq
 native_vs_nonnative_cover_chisq$residuals
 ```
 
+
+### Histogram of visit date
+
+
 ```{r}
 ggplot(data = lhprism_data, aes(x = visit_date)) +
   geom_histogram()
 ```
 
-You can add options to executable code like this
+
+### Histogram of pu_count
 
 ```{r}
 ggplot(data = lhprism_data, aes(x = pu_count)) +
-  geom_histogram()
+  geom_histogram() +
+  scale_x_log10()
 ```
+
+### Relationship between gross square feet searched vs treated
+
+```{r}
+ggplot(data = lhprism_data, aes(x = gross_sqft, y = gross_treat_sqft)) +
+  geom_point()
+```
+
+
 
 ## Tables
 
@@ -144,8 +163,6 @@ lhprism_data %>%
   count()
 
 
-# get new species code
-lhprism_data$species_code <- str_extract(lhprism_data$site_code, "(?<=_)[^_]+(?=_)") 
 
 # What about different years?
 # Commented this so it doesn't print out a bunch of years in our html doc
