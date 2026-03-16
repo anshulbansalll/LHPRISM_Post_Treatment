@@ -49,37 +49,33 @@ lhprism_data <- lhprism_data %>%
   mutate(native = factor(native, levels = c("low", "medium", "high")),
          non_nat = factor(non_nat, levels = c("low", "medium", "high")))
 
-# Create a species code column
+## Create a new species code column
 lhprism_data$species_code <- str_extract(lhprism_data$site_code, "(?<=_)[^_]+(?=_)") 
+## Remove plant column
+lhprism_data$plant <- NULL
+
+## Create a new site column using the species_code column
+lhprism_data$site <- str_extract(lhprism_data$site_code, "^[^_]+")
+
+## Remove all rows that have NA for site
+lhprism_data <- lhprism_data %>%
+  filter(!is.na(site))
 
 ```
 
 ## Figures
 
-Let's see if we can make a figure showing the relationships between native vs non-native coverage
-
 ```{r}
-lhprism_data %>%
-  filter(!is.na(native)) %>%
-  ggplot(data = ., aes(x = native)) +
-  coord_cartesian(ylim = c(0, 400)) +
-  geom_bar()
+#| label: fig-native-vs-nonnative-coverage
+#| fig-cap: "Relationship between native vs non-native coverage categories"
+#| fig-width: 6
 
-lhprism_data %>%
-  filter(!is.na(non_nat)) %>%
-  ggplot(data = ., aes(x = non_nat)) +
-  coord_cartesian(ylim = c(0, 400)) +
-  geom_bar()
-```
 
-Let's try to make a more complex plot.
-
-```{r}
 lh_sub <- lhprism_data %>%
   select(native, non_nat)
 
 lh_sub_long <- 
-  data.frame(native_vs_nonnative = rep(c("native", "non_nat"), each = 3303),
+  data.frame(native_vs_nonnative = rep(c("native", "non_nat"), each = nrow(lh_sub)),
              coverage = c(lh_sub$native, lh_sub$non_nat))
 
 lh_sub_long %>%
@@ -87,12 +83,18 @@ lh_sub_long %>%
   ggplot(., aes(x = coverage, fill = native_vs_nonnative)) +
   geom_bar(position = "dodge") +
   scale_fill_manual(values = cbPalette) +
+  xlab("Coverage Category") +
+  ylab("Visit Count") +
+  labs(fill = "Coverage Type") +
   theme_minimal()
 ```
 
 Let's make a table that goes along with this.
 
 ```{r}
+#| label: tbl-native-vs-nonnative-coverage-table
+#| fig-cap: "Counts of native vs non-native coverage categories. Note that rows are native classificaitons and columns are non-native classifications."
+
 native_vs_nonnative_cover <-
   lhprism_data %>% 
   group_by(native, non_nat) %>%
@@ -100,8 +102,9 @@ native_vs_nonnative_cover <-
   filter(!is.na(native)) %>%
   pivot_wider(names_from = non_nat, values_from = n, values_fill = 0)
 
-native_vs_nonnative_cover
+knitr::kable(native_vs_nonnative_cover)
 
+## Perform a chi-squared analysis
 native_vs_nonnative_cover_chisq <-
   chisq.test(native_vs_nonnative_cover[2:4])
 
@@ -109,15 +112,12 @@ native_vs_nonnative_cover_chisq
 native_vs_nonnative_cover_chisq$residuals
 ```
 
-
 ### Histogram of visit date
-
 
 ```{r}
 ggplot(data = lhprism_data, aes(x = visit_date)) +
   geom_histogram()
 ```
-
 
 ### Histogram of pu_count
 
@@ -134,14 +134,13 @@ ggplot(data = lhprism_data, aes(x = gross_sqft, y = gross_treat_sqft)) +
   geom_point()
 ```
 
-
-
 ## Tables
 
 Let's make some tables.
 
 ```{r}
-#| label: tables
+#| label: tbl-visit-status-table
+#| fig-cap: "Counts of visit status categories. Note that the 'NA' category is for visits where the visit status was not recorded."
 
 lhprism_data %>%
   group_by(visit_status_char) %>%
@@ -162,26 +161,12 @@ lhprism_data %>%
   group_by(distribution) %>%
   count()
 
-
-
-# What about different years?
-# Commented this so it doesn't print out a bunch of years in our html doc
-#lubridate::year(lhprism_data$visit_date)
-
-month(lhprism_data$visit_date) %>%
-  table()
-
 lhprism_data %>%
   count(month(visit_date, label = TRUE)) %>%
   filter(!is.na(`month(visit_date, label = TRUE)`)) %>%
   rename(Month = `month(visit_date, label = TRUE)`) %>%
   ggplot(data = ., aes(x = Month, y = n)) +
   geom_bar(stat = "identity")
-```
-
-
-```{r, results='hide'}
-day(lhprism_data$visit_date)
 ```
 
 
@@ -213,5 +198,13 @@ lhprism_data %>%
 
 ```{r}
 
-
+lhprism_data %>%
+  group_by(site) %>%
+  summarise(
+    mean_plant_count = mean(plant_count, na.rm = TRUE),
+    #mean_percent_cover = mean(percent_cover, na.rm = TRUE),
+    total_visits = n()
+  ) %>%
+  arrange(desc(total_visits))
 ```
+
