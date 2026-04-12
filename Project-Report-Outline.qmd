@@ -37,8 +37,13 @@ Project overview. Written by all participants.
 
 -   This will be done on a subset of species
     -   How did we choose these species?
+        -    Need to identify list of species we are analysing with LHPRISM
     -   Brief overview of ecology of these particular species
+        -    invasive plant species website with who, what, when, and where introduced
+        -    Perhaps known methods of treatment
 -   Description of the methods used in this analysis
+    -    Keep detailed notes of what changes as we go along
 -   Description of the results of this analysis
+    -    caption all figures
 
 ## Conclusions and recommendations
