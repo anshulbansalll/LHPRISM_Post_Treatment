@@ -25,7 +25,7 @@ What makes certain species so successful in new environments often comes down to
 
 The pathways through which invasive species move around the world are closely tied to human activity [@mack2000]. Global trade is one of the biggest drivers — cargo ships, shipping containers, and pallets of imported goods routinely carry hitchhiking organisms across continents and oceans [@usda2024]. The pet trade has introduced countless exotic animals into new regions, and when those animals escape or are deliberately released, some find conditions favorable enough to establish wild populations [@usda2024]. Ornamental horticulture has a long history of introducing plants that eventually escape garden boundaries and spread into natural areas [@mack2000]. Even recreational activities like hiking, boating, and fishing can accidentally transport seeds, larvae, or spores from one watershed to another [@nysdec2024].
 
-The ecological damage caused by established invasive species takes many forms [@gentili2021]. Some are aggressive predators that decimate native prey populations before those populations have any chance to adapt [@mack2000]. Others are competitors that crowd out native plants or animals from food, space, and other resources they need to survive [@usda2024]. Over time, a successful invasion can fundamentally restructure an ecosystem — replacing native plant communities with monocultures, disrupting food webs, altering water cycles, and in the most severe cases, driving native species to local or even global extinction [@gentili2021; @mack2000]. Invasive species can also carry parasites and pathogens that spill over into native wildlife, compounding the damage furtherndefined \[@us
+The ecological damage caused by established invasive species takes many forms [@gentili2021]. Some are aggressive predators that decimate native prey populations before those populations have any chance to adapt [@mack2000]. Others are competitors that crowd out native plants or animals from food, space, and other resources they need to survive [@usda2024]. Over time, a successful invasion can fundamentally restructure an ecosystem — replacing native plant communities with monocultures, disrupting food webs, altering water cycles, and in the most severe cases, driving native species to local or even global extinction [@gentili2021; @mack2000]. Invasive species can also carry parasites and pathogens that spill over into native wildlife, compounding the damage furtherndefined [@usda2024]
 
 Beyond the ecological toll, invasive species impose enormous economic costs [@diagne2021]. Agricultural industries lose billions of dollars annually to crop damage from invasive pests and weeds [@diagne2021]. Forestry operations contend with invasive insects and diseases that kill commercially valuable trees [@mack2000]. Water infrastructure is disrupted by organisms like zebra mussels that clog intake pipes and alter aquatic chemistry [@usda2024]. And the cost of active management — detection, treatment, removal, and restoration — adds yet another layer to the financial burden [@diagne2021; @leung2002]. In densely populated and ecologically diverse states like New York, these costs are felt across sectors and communities [@nysdec2024].
 
@@ -39,47 +39,11 @@ PRISMs are groups of partners who work together to manage invasive species in di
 
 ## PRISMs carry out many important tasks, including:
 
-Planning invasive species management for their region [@nysdec2016]
-
-Running programs that help prevent new invasive species [@nysdec2016]
-
-Surveying and mapping where invasive species are found [@nysdec2024]
-
-Finding new invasions early and responding quickly [@nysdec2016]
-
-Carrying out control and removal projects [@nysdec2016]
-
-Restoring and monitoring habitats after treatment [@nysdec2024]
-
-Teaching people about invasive species and their impacts [@nysdec2024]
-
-Bringing partners together to coordinate work [@nysdec2016]
-
-Recruiting and training volunteers [@nysdec2024]
-
-Supporting research through citizen science with the Invasive Species Research Institute [@nysdec2024]
-
-Reporting invasive species sightings to iMapInvasives [@nysdec2024]
-
-Providing education and outreach to communities [@nysdec2016]
-
-Since 2013, the DEC has contracted organizations to run all eight PRISMs across the state [@nysdec2016].
+Since 2013, the DEC has contracted organizations to run all eight PRISMs across the state, which plan and coordinate regional invasive species management while bringing partners together statewide [@NYSDEC2016]. They survey and map invasions, detecting new threats early and responding quickly before species spread [@NYSDEC2016]. Control and removal projects are carried out alongside habitat restoration and monitoring after treatment [@NYSDEC2024]. Communities are engaged through education, outreach, volunteer training, and citizen science support through the Invasive Species Research Institute, with sightings logged to iMapInvasives [@NYSDEC2024].
 
 ## PRISMs deliver:
 
-Regional planning for invasive species management [@nysdec2016]
-
-Early detection and rapid response [@nysdec2016]
-
-Eradication and control projects [@nysdec2024]
-
-Education and outreach (with DEC-supported educators) [@nysdec2024]
-
-Coordination among partners [@nysdec2016]
-
-Volunteer training and involvement [@nysdec2024]
-
-Citizen-science support for research [@nysdec2024]
+PRISMs provide comprehensive regional planning for invasive species management, ensuring coordinated strategies are in place across all eight regions of New York State [@NYSDEC2016]. They lead early detection and rapid response efforts, minimizing the establishment and spread of new invasions [@NYSDEC2016]. Eradication and control projects are executed on the ground, followed by long-term habitat restoration and monitoring to track recovery [@NYSDEC2024]. With DEC-supported educators, PRISMs deliver targeted education and outreach to communities, raising awareness and building local capacity [@NYSDEC2024]
 
 The DEC is the main state agency responsible for environmental protection in New York, and invasive species management is part of its work [@nysdec2024]. Because invasive species spread across boundaries, New York created PRISMs so each region can coordinate its efforts [@nysdec2024].
 
